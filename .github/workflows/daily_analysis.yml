@@ -81,11 +81,6 @@ jobs:
          STOCK_LIST: ${{ vars.STOCK_LIST }}
          run: |
            python main.py
-  
-  # 👇 如果程序被 kill，这个步骤可能不会执行
-      - name: 运行分析后内存状态
-        if: always()  # 即使前面失败也执行
-        run: free -h
       
       - name: 执行股票分析
         env:
