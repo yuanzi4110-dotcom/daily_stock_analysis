@@ -69,18 +69,6 @@ jobs:
       - name: 创建必要目录
         run: |
           mkdir -p data logs reports
-
-      - name: 运行分析前内存状态
-        run: free -h
-  
-      - name: 运行分析
-       env:
-         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-         TUSHARE_TOKEN: ${{ secrets.TUSHARE_TOKEN }}
-         FEISHU_WEBHOOK_URL: ${{ secrets.FEISHU_WEBHOOK_URL }}
-         STOCK_LIST: ${{ vars.STOCK_LIST }}
-         run: |
-           python main.py
       
       - name: 执行股票分析
         env:
